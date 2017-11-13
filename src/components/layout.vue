@@ -14,7 +14,11 @@
         </div>
       </div>
     </div>
-    <div class="app-content">content</div>
+    <div class="app-content">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </div>
     <div class="app-foot">
       <p>© 2016 Marsor707 MIT</p>
     </div>
@@ -31,7 +35,6 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,

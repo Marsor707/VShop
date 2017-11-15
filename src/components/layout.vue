@@ -2,7 +2,9 @@
   <div>
     <div class="app-head">
       <div class="app-head-inner">
-        <img src="../assets/logo.png"/>
+        <router-link :to="{path:'/'}">
+          <img src="../assets/logo.png"/>
+        </router-link>
         <div class="head-nav">
           <ul class="nav-list">
             <li>{{username}}</li>
@@ -23,7 +25,7 @@
       </keep-alive>
     </div>
     <div class="app-foot">
-      <p>© 2016 Marsor707 MIT</p>
+      <p>© 2017 Marsor707 MIT</p>
     </div>
     <my-dialog :is-show="isShowAboutDialog" @on-close="closeDialog('isShowAboutDialog')">
       <p>

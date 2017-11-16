@@ -20,7 +20,7 @@
           产品类型：
         </div>
         <div class="sales-board-line-right">
-          <!-- <v-selection></v-selection> -->
+          <v-selection :selections="productTypes"></v-selection>
         </div>
       </div>
       <div class="sales-board-line">
@@ -77,9 +77,29 @@
 </template>
 
 <script>
+  import VSelection from '../../components/selection.vue'
+
   export default {
+    components: {
+      VSelection
+    },
     data() {
-      return {}
+      return {
+        productTypes: [
+          {
+            label: '入门版',
+            value: 0
+          },
+          {
+            label: '中级版',
+            value: 1
+          },
+          {
+            label: '高级版',
+            value: 2
+          }
+        ]
+      }
     }
   }
 </script>

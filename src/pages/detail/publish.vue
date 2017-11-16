@@ -29,7 +29,7 @@
           产品版本：
         </div>
         <div class="sales-board-line-right">
-          <!-- <v-mul-chooser :selections="versionList"></v-mul-chooser> -->
+          <v-mul-chooser :selections="versionList"></v-mul-chooser>
         </div>
       </div>
       <div class="sales-board-line">
@@ -256,10 +256,12 @@
 
 <script>
   import VSelection from '../../components/selection.vue'
+  import VMulChooser from '../../components/multiplyChooser'
 
   export default {
     components: {
-      VSelection
+      VSelection,
+      VMulChooser
     },
     data() {
       return {
@@ -285,6 +287,24 @@
             value: 4
           }
         ],
+        versionList: [
+          {
+            label: '初级版',
+            value: 0
+          },
+          {
+            label: '中级版',
+            value: 1
+          },
+          {
+            label: '高级版',
+            value: 2
+          },
+          {
+            label: '专家版',
+            value: 3
+          }
+        ]
       }
     }
   }

@@ -13,7 +13,7 @@
           购买数量：
         </div>
         <div class="sales-board-line-right">
-          <!--<v-counter :max="100" :min="20"></v-counter>-->
+          <v-counter :max="100" :min="20"></v-counter>
         </div>
       </div>
       <div class="sales-board-line">
@@ -60,7 +60,9 @@
     <div class="sales-board-des">
       <h2>产品说明</h2>
       <p>
-        广告活动按照广告计划执行，到完成广告创作并形成广告作品之后，经过广告主的最后审核同意，即可送到预定的媒介发布刊播。这项工作一般由媒介部门的有关专业人员负责，他们的任务就是专门负责与有关媒介单位接洽，安排有关广告的发播事宜，并对发播质量实施监督。</p>
+        广告活动按照广告计划执行，到完成广告创作并形成广告作品之后，经过广告主的最后审核同意，
+        即可送到预定的媒介发布刊播。这项工作一般由媒介部门的有关专业人员负责，他们的任务就是专门负责与有关媒介单位接洽，
+        安排有关广告的发播事宜，并对发播质量实施监督。</p>
       <table class="sales-board-table">
         <tbody>
         <tr class="ui-table-row">
@@ -255,13 +257,15 @@
 </template>
 
 <script>
-  import VSelection from '../../components/selection.vue'
-  import VMulChooser from '../../components/multiplyChooser'
+  import VSelection from '../../components/base/selection.vue'
+  import VMulChooser from '../../components/base/multiplyChooser'
+  import VCounter from '../../components/base/counter.vue'
 
   export default {
     components: {
       VSelection,
-      VMulChooser
+      VMulChooser,
+      VCounter
     },
     data() {
       return {

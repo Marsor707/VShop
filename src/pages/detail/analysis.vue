@@ -13,6 +13,7 @@
           购买数量：
         </div>
         <div class="sales-board-line-right">
+          <v-counter></v-counter>
         </div>
       </div>
       <div class="sales-board-line">
@@ -28,7 +29,15 @@
           有效时间：
         </div>
         <div class="sales-board-line-right">
-          半年
+          <v-chooser :selections="periodList"></v-chooser>
+        </div>
+      </div>
+      <div class="sales-board-line">
+        <div class="sales-board-line-left">
+          产品版本：
+        </div>
+        <div class="sales-board-line-right">
+          <v-mul-chooser :selections="versionList"></v-mul-chooser>
         </div>
       </div>
       <div class="sales-board-line">
@@ -77,14 +86,48 @@
 </template>
 
 <script>
-  import VSelection from '../../components/selection.vue'
+  import VSelection from '../../components/base/selection.vue'
+  import VCounter from '../../components/base/counter.vue'
+  import VChooser from '../../components/base/chooser.vue'
+  import VMulChooser from '../../components/base/multiplyChooser.vue'
 
   export default {
     components: {
-      VSelection
+      VSelection,
+      VCounter,
+      VChooser,
+      VMulChooser
     },
     data() {
       return {
+        versionList: [
+          {
+            label: '客户版',
+            value: 0
+          },
+          {
+            label: '代理商版',
+            value: 1
+          },
+          {
+            label: '专家版',
+            value: 2
+          }
+        ],
+        periodList: [
+          {
+            label: '半年',
+            value: 0
+          },
+          {
+            label: '一年',
+            value: 1
+          },
+          {
+            label: '三年',
+            value: 2
+          }
+        ],
         buyTypes: [
           {
             label: '入门版',

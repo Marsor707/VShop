@@ -243,8 +243,8 @@
 </template>
 
 <script>
-  import VChooser from '../../components/chooser.vue'
-  import VSelection from '../../components/selection.vue'
+  import VChooser from '../../components/base/chooser.vue'
+  import VSelection from '../../components/base/selection.vue'
 
   export default {
     components: {

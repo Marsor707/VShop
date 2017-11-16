@@ -13,7 +13,7 @@
           购买数量：
         </div>
         <div class="sales-board-line-right">
-           <!--<v-counter :max="100" :min="20"></v-counter>-->
+          <!--<v-counter :max="100" :min="20"></v-counter>-->
         </div>
       </div>
       <div class="sales-board-line">
@@ -21,7 +21,7 @@
           行业：
         </div>
         <div class="sales-board-line-right">
-          <!-- <v-selection :selections="tradeList"></v-selection> -->
+          <v-selection :selections="tradeList"></v-selection>
         </div>
       </div>
       <div class="sales-board-line">
@@ -255,9 +255,37 @@
 </template>
 
 <script>
+  import VSelection from '../../components/selection.vue'
+
   export default {
+    components: {
+      VSelection
+    },
     data() {
-      return {}
+      return {
+        tradeList: [
+          {
+            label: '出版业',
+            value: 0
+          },
+          {
+            label: '媒体',
+            value: 1
+          },
+          {
+            label: '金融',
+            value: 2
+          },
+          {
+            label: '互联网',
+            value: 3
+          },
+          {
+            label: '游戏',
+            value: 4
+          }
+        ],
+      }
     }
   }
 </script>

@@ -20,7 +20,7 @@
           产品类型：
         </div>
         <div class="sales-board-line-right">
-          <v-selection :selections="productTypes"></v-selection>
+          <v-selection :selections="buyTypes"></v-selection>
         </div>
       </div>
       <div class="sales-board-line">
@@ -85,7 +85,7 @@
     },
     data() {
       return {
-        productTypes: [
+        buyTypes: [
           {
             label: '入门版',
             value: 0
@@ -98,7 +98,7 @@
             label: '高级版',
             value: 2
           }
-        ]
+        ],
       }
     }
   }

@@ -83,7 +83,7 @@
         }
         else {
           this.errorText = ''
-          this.$http.get('http://127.0.0.1:8080/login')
+          this.$http.get('/api/login')
             .then((res) => {
               this.$emit('has-log', res.data)
             })

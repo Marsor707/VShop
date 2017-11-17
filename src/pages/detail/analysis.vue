@@ -13,7 +13,7 @@
           购买数量：
         </div>
         <div class="sales-board-line-right">
-          <v-counter></v-counter>
+          <v-counter @on-change="onParamChange('buyNum', $event)"></v-counter>
         </div>
       </div>
       <div class="sales-board-line">
@@ -21,7 +21,7 @@
           产品类型：
         </div>
         <div class="sales-board-line-right">
-          <v-selection :selections="buyTypes"></v-selection>
+          <v-selection :selections="buyTypes" @on-change="onParamChange('buyType', $event)"></v-selection>
         </div>
       </div>
       <div class="sales-board-line">
@@ -29,7 +29,7 @@
           有效时间：
         </div>
         <div class="sales-board-line-right">
-          <v-chooser :selections="periodList"></v-chooser>
+          <v-chooser :selections="periodList" @on-change="onParamChange('period', $event)"></v-chooser>
         </div>
       </div>
       <div class="sales-board-line">
@@ -37,7 +37,7 @@
           产品版本：
         </div>
         <div class="sales-board-line-right">
-          <v-mul-chooser :selections="versionList"></v-mul-chooser>
+          <v-mul-chooser :selections="versionList" @on-change="onParamChange('versions', $event)"></v-mul-chooser>
         </div>
       </div>
       <div class="sales-board-line">
@@ -45,7 +45,7 @@
           总价：
         </div>
         <div class="sales-board-line-right">
-          500元
+          {{price}}
         </div>
       </div>
       <div class="sales-board-line">
@@ -90,6 +90,7 @@
   import VCounter from '../../components/base/counter.vue'
   import VChooser from '../../components/base/chooser.vue'
   import VMulChooser from '../../components/base/multiplyChooser.vue'
+  import _ from 'lodash'
 
   export default {
     components: {
@@ -100,6 +101,11 @@
     },
     data() {
       return {
+        buyNum: 0,
+        buyType: {},
+        versions: [],
+        period: {},
+        price: 0,
         versionList: [
           {
             label: '客户版',
@@ -143,6 +149,37 @@
           }
         ],
       }
+    },
+    methods: {
+      onParamChange(attr, val) {
+        this[attr] = val
+        this.getPrice()
+      },
+      getPrice() {
+        let buyVersionArray = _.map(this.versions, (item) => {
+          return item.value
+        })
+        let reqParams = {
+          buyNumber: this.buyNum,
+          buyType: this.buyType,
+          period: this.period,
+          version: buyVersionArray.join(',')
+        }
+        this.$http.post('http://127.0.0.1:8080/getPrice', reqParams)
+          .then((res) => {
+            this.price = res.data.amount;
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      },
+    },
+    mounted() {
+      this.buyNum = 1
+      this.buyType = this.buyTypes[0]
+      this.versions = [this.versionList[0]]
+      this.period = this.periodList[0]
+      this.getPrice()
     }
   }
 </script>

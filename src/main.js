@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Axios from 'axios'
 import IndexPage from './pages/index.vue'
 import DetailPage from './pages/detail.vue'
+import OrderListPage from './pages/orderList.vue'
 import DetailAnyPage from './pages/detail/analysis.vue'
 import DetailCouPage from './pages/detail/count.vue'
 import DetailForPage from './pages/detail/forecast.vue'
@@ -18,6 +19,10 @@ let router = new VueRouter({
     {
       path: '/',
       component: IndexPage
+    },
+    {
+      path: '/orderList',
+      component: OrderListPage
     },
     {
       path: '/detail',

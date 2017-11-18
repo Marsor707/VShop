@@ -9,6 +9,7 @@ import DetailAnyPage from './pages/detail/analysis.vue'
 import DetailCouPage from './pages/detail/count.vue'
 import DetailForPage from './pages/detail/forecast.vue'
 import DetailPubPage from './pages/detail/publish.vue'
+import store from './store'
 
 Vue.use(VueRouter)
 Vue.prototype.$http = Axios
@@ -54,6 +55,7 @@ let router = new VueRouter({
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<Layout/>',
   components: {Layout}
 })

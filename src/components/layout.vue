@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="resetComponent">
     <div class="app-head">
       <div class="app-head-inner">
         <router-link :to="{path:'/'}">
@@ -48,6 +48,7 @@
   import Dialog from './base/dialog.vue'
   import LogForm from './logForm.vue'
   import RegForm from './regForm.vue'
+  import {eventBus} from '../eventBus'
 
   export default {
     components: {
@@ -79,6 +80,9 @@
       onSuccessLog(data) {
         this.closeDialog('isShowLogDialog')
         this.username = data.username
+      },
+      resetComponent() {
+        eventBus.$emit('reset-component')
       }
     }
   }

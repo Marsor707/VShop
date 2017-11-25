@@ -16,6 +16,7 @@ Vue.prototype.$http = Axios
 
 let router = new VueRouter({
   mode: 'history',
+  base: './',
   routes: [
     {
       path: '/',

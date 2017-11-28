@@ -46,9 +46,12 @@ let router = new VueRouter({
         {
           path: 'publish',
           component: DetailPubPage
-        }
-
+        },
       ]
+    },
+    {
+      path: '*',
+      component: IndexPage
     }
   ]
 })

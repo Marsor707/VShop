@@ -25,7 +25,7 @@
       </keep-alive>
     </div>
     <div class="app-foot">
-      <p>© 2017 Marsor707 MIT</p>
+      <p>© 2017 Marsor707 WTFPL</p>
     </div>
     <my-dialog :is-show="isShowAboutDialog" @on-close="closeDialog('isShowAboutDialog')">
       <p>
